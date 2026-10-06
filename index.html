@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Demo Website – Calgary's Premier Club for Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050403;--bg2:#0d0a07;--text:#f3ede3;--muted:#b9ad9a;--gold:#c9a050;--line:rgba(201,160,80,.35);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#050403}}
+:root[data-theme="dark"]{--bg:#050403}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--text);font-family:"Montserrat",system-ui,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;padding-top:calc(18px + env(safe-area-inset-top,0px));background:linear-gradient(#050403ee,#05040300)}
+nav .logo{font-weight:800;letter-spacing:.04em}
+nav .logo span{color:var(--gold)}
+nav ul{display:flex;gap:28px;list-style:none;padding:0;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+nav ul a:hover{color:var(--gold)}
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:120px 6vw 80px;position:relative;overflow:hidden;
+background:
+radial-gradient(ellipse 30% 40% at 78% 45%,rgba(214,160,80,.45),transparent 70%),
+radial-gradient(ellipse 18% 22% at 58% 12%,rgba(230,170,80,.35),transparent 70%),
+radial-gradient(ellipse 14% 20% at 85% 70%,rgba(190,120,50,.3),transparent 70%),
+linear-gradient(90deg,#050403 0%,#0a0806 45%,#1a1109 80%,#0c0805 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,200,120,.05) 0 2px,transparent 2px 38px),repeating-linear-gradient(0deg,rgba(255,200,120,.05) 0 2px,transparent 2px 30px);-webkit-mask-image:linear-gradient(90deg,transparent 45%,#000 75%);mask-image:linear-gradient(90deg,transparent 45%,#000 75%)}
+.hero>div{position:relative;max-width:640px}
+.eyebrow{color:var(--gold);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:22px}
+h1{font-size:clamp(52px,9vw,96px);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin-bottom:34px}
+h1 em{font-style:normal;color:var(--gold)}
+.lead{font-size:clamp(17px,2vw,20px);max-width:30em;margin-bottom:42px}
+.lead b{font-weight:600}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-block;padding:17px 32px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--gold);transition:background .2s,color .2s}
+.btn.fill{background:var(--gold);color:#120d05}
+.btn.fill:hover{background:#e0b865}
+.btn.ghost{color:var(--text);border-color:var(--text)}
+.btn.ghost:hover{background:var(--text);color:#120d05}
+section.block{padding:110px 6vw;border-top:1px solid var(--line)}
+section.alt{background:var(--bg2)}
+.wrap{max-width:1080px;margin:0 auto}
+h2{font-size:clamp(30px,4.5vw,46px);font-weight:800;line-height:1.1;margin-bottom:22px;letter-spacing:-.01em}
+.sub{color:var(--muted);max-width:40em;margin-bottom:56px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:40px}
+.grid h3{font-size:19px;font-weight:600;margin-bottom:10px;color:var(--gold)}
+.grid p{color:var(--muted);font-size:15px}
+.grid>div{border-top:1px solid var(--line);padding-top:22px}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.tier{border:1px solid var(--line);padding:34px 30px;display:flex;flex-direction:column}
+.tier.feat{border-color:var(--gold);background:rgba(201,160,80,.06)}
+.tier h3{font-size:22px;font-weight:600;margin-bottom:6px}
+.tier .for{color:var(--gold);font-size:14px;margin-bottom:20px}
+.tier ul{padding-left:18px;color:var(--muted);font-size:15px;margin-bottom:28px}
+.tier li{margin-bottom:6px}
+.tier .btn{margin-top:auto;text-align:center}
+.stats{display:flex;flex-wrap:wrap;gap:48px;margin-top:40px}
+.stats strong{display:block;font-size:44px;font-weight:800;color:var(--gold);line-height:1}
+.stats span{font-size:14px;color:var(--muted)}
+form{display:grid;gap:16px;max-width:560px}
+label{font-size:14px;font-weight:600}
+input,select{width:100%;margin-top:6px;padding:14px;background:#0a0806;border:1px solid var(--line);color:var(--text);font:inherit}
+button.btn{cursor:pointer;background:var(--gold);color:#120d05;font-family:inherit;justify-self:start}
+#msg{color:var(--gold);min-height:1.5em}
+footer{padding:40px 6vw;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:760px){nav ul{display:none}.hero{background-position:center}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#top">Demo <span>website</span></a>
+  <ul><li><a href="#about">About</a></li><li><a href="#spaces">Spaces</a></li><li><a href="#membership">Membership</a></li><li><a href="#tour">Book a tour</a></li></ul>
+</nav>
+
+<header class="hero" id="top">
+  <div>
+    <p class="eyebrow">Calgary's premier club for business</p>
+    <h1>Demo <em>website</em></h1>
+    <p class="lead">A private downtown club for dining, meetings, private events, and the relationships that move Calgary's business community forward — <b>since 1948.</b></p>
+    <div class="btns">
+      <a class="btn fill" href="#membership">Explore membership</a>
+      <a class="btn ghost" href="#tour">Book a tour</a>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="about">
+  <div class="wrap">
+    <h2>Where Calgary does business, over dinner.</h2>
+    <p class="sub">For over seventy-five years, members have used the club to close deals, welcome clients, and meet the people who shape the city.</p>
+    <div class="grid">
+      <div><h3>Dining</h3><p>A refined restaurant and a cellar-side table for working lunches and long evenings.</p></div>
+      <div><h3>Meetings</h3><p>Quiet boardrooms with AV, catering, and a host who handles the details.</p></div>
+      <div><h3>Private events</h3><p>Receptions, dinners, and celebrations for groups from 8 to 200.</p></div>
+      <div><h3>Community</h3><p>Member talks, mentorship, and introductions across industries.</p></div>
+    </div>
+    <div class="stats">
+      <div><strong>1948</strong><span>Founded in Calgary</span></div>
+      <div><strong>200</strong><span>Guests in the largest room</span></div>
+      <div><strong>Downtown</strong><span>Steps from the offices you work in</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="spaces">
+  <div class="wrap">
+    <h2>Rooms for every kind of gathering.</h2>
+    <p class="sub">Each space can be booked for a single occasion or reserved by members year-round.</p>
+    <div class="grid">
+      <div><h3>The Wine Cellar Room</h3><p>A long table beside a glass-walled cellar. Seats up to 14.</p></div>
+      <div><h3>The Skyline Lounge</h3><p>Floor-to-ceiling windows and evening city views. Ideal for receptions.</p></div>
+      <div><h3>The Boardrooms</h3><p>Three private rooms for focused meetings of 4 to 20.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="membership">
+  <div class="wrap">
+    <h2>Choose how you belong.</h2>
+    <p class="sub">Every membership includes dining, meeting spaces, and the member events calendar.</p>
+    <div class="tiers">
+      <div class="tier"><h3>Associate</h3><p class="for">For professionals building their network</p><ul><li>Dining room access</li><li>Member events</li><li>Meeting room booking</li></ul><a class="btn ghost" href="#tour">Ask about Associate</a></div>
+      <div class="tier feat"><h3>Resident</h3><p class="for">For leaders who host often</p><ul><li>Everything in Associate</li><li>Priority reservations</li><li>Private event discounts</li><li>Guest privileges</li></ul><a class="btn fill" href="#tour">Ask about Resident</a></div>
+      <div class="tier"><h3>Corporate</h3><p class="for">For teams and organizations</p><ul><li>Multiple named members</li><li>Dedicated account host</li><li>Annual event credit</li></ul><a class="btn ghost" href="#tour">Ask about Corporate</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="block alt" id="tour">
+  <div class="wrap">
+    <h2>Book a tour.</h2>
+    <p class="sub">See the club in person. Tell us a little about yourself and we'll arrange a time.</p>
+    <form id="f" onsubmit="return false">
+      <label>Full name<input id="n" autocomplete="name"></label>
+      <label>Email<input id="e" type="email" autocomplete="email"></label>
+      <label>I'm interested in
+        <select><option>Membership</option><option>Private event</option><option>Meeting room</option></select>
+      </label>
+      <button class="btn" type="button" onclick="send()">Request a tour</button>
+      <p id="msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Demo website. Calgary, Alberta.</span>
+  <span>Private club for business since 1948</span>
+</footer>
+
+<elevenlabs-convai agent-id="agent_5201m3cnsk9mfhxskwjt9s78rmtk"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+<script>
+function send(){
+  var n=document.getElementById('n').value.trim(),e=document.getElementById('e').value.trim(),m=document.getElementById('msg');
+  m.textContent=(n&&e)?'Thanks, '+n.split(' ')[0]+'. Your request is recorded for this demo; no message was sent.':'Enter your name and email to request a tour.';
+}
+</script>
+</body>
+</html>
